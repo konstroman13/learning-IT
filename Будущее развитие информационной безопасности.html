@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Будущее информационной безопасности</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+            background-image: linear-gradient(45deg, rgba(0, 255, 170, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 255, 170, 0.1) 50%, rgba(0, 255, 170, 0.1) 75%, transparent 75%, transparent);
+            background-size: 40px 40px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        header {
+            background: linear-gradient(90deg, #1e1e1e, #292929);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            background: rgba(30, 30, 30, 0.95);
+            padding: 20px;
+            margin: 10px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            max-width: 600px;
+            transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            display: none;
+        }
+        .fade-out {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #292929;
+            margin-top: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Будущее информационной безопасности</h1>
+    </header>
+    
+    <main>
+        <section id="welcome" onclick="showSections()">
+            <h2>Добро пожаловать</h2>
+            <p>Нажмите, чтобы узнать больше.</p>
+        </section>
+        
+        <section id="news" class="hidden"><a href="news.html"><h2>Новости</h2><p>Последние события в мире кибербезопасности.</p></a></section>
+        <section id="analytics" class="hidden"><a href="analytics.html"><h2>Аналитика</h2><p>Глубокий анализ современных угроз.</p></a></section>
+        <section id="technology" class="hidden"><a href="technology.html"><h2>Технологии</h2><p>Новые разработки в сфере защиты данных.</p></a></section>
+        <section id="threats" class="hidden"><a href="threats.html"><h2>Угрозы</h2><p>Актуальные киберугрозы и методы их выявления.</p></a></section>
+        <section id="protection" class="hidden"><a href="protection.html"><h2>Защита</h2><p>Как защитить информацию от атак.</p></a></section>
+        <section id="future" class="hidden"><a href="future.html"><h2>Будущее</h2><p>Какие технологии изменят безопасность завтра.</p></a></section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Будущее информационной безопасности</p>
+    </footer>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.style.opacity = "1";
+        });
+        
+        function showSections() {
+            let welcomeSection = document.getElementById("welcome");
+            welcomeSection.classList.add("fade-out");
+            setTimeout(() => {
+                welcomeSection.style.display = "none";
+                const sections = document.querySelectorAll(".hidden");
+                sections.forEach((section, index) => {
+                    setTimeout(() => {
+                        section.style.display = "block";
+                        setTimeout(() => {
+                            section.style.opacity = "1";
+                            section.style.transform = "translateY(0)";
+                        }, 50);
+                    }, index * 300);
+                });
+            }, 800);
+        }
+    </script>
+</body>
+</html>
